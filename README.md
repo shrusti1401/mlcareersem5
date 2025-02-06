@@ -103,13 +103,6 @@ Solution: We employed advanced machine learning algorithms, including collaborat
 Special Thanks to our HOD Dr. Ravi Gor for giving us this opportunity. Also thanks to our mentors Saurabh Das and Naqibahmed Kadri for helping us to solve doubts and conflits through the project.
 
 
-## Get In Touch:
-
-
-| Team Member | LinkedIn | Kaggle | Email |
-|---|---|---|---|
-| Avani Brahmbhatt | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/avani-brahmbhatt-5a512928a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [Hackathon600@gmail.com
-](mailto:Hackathon600@gmail.com) |
 
 
 
