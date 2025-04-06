@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Assessment Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Career Assessment Test</h2>
+
+  <form id="career-form">
+    <div id="input-container"></div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const featureNames = [
+      'Drawing', 'Dancing', 'Singing', 'Sports', 'Video Game', 'Acting', 'Travelling',
+      'Gardening', 'Animals', 'Photography', 'Teaching', 'Exercise', 'Coding',
+      'Electricity Components', 'Mechanic Parts', 'Computer Parts', 'Researching',
+      'Architecture', 'Historic Collection', 'Botany', 'Zoology', 'Physics',
+      'Accounting', 'Economics', 'Sociology', 'Geography', 'Psycology', 'History',
+      'Science', 'Bussiness Education', 'Chemistry', 'Mathematics', 'Biology',
+      'Makeup', 'Designing', 'Content writing', 'Crafting', 'Literature', 'Reading',
+      'Cartooning', 'Debating', 'Asrtology', 'Hindi', 'French', 'English', 'Urdu',
+      'Other Language', 'Solving Puzzles', 'Gymnastics', 'Yoga', 'Engeeniering',
+      'Doctor', 'Pharmisist', 'Cycling', 'Knitting', 'Director', 'Journalism',
+      'Bussiness', 'Listening Music'
+    ];
+
+    const inputContainer = document.getElementById("input-container");
+
+    featureNames.forEach(name => {
+      const div = document.createElement("div");
+      div.className = "form-group";
+      div.innerHTML = `
+        <label for="${name}">${name}</label>
+        <input type="number" id="${name}" name="${name}" min="0" max="10" value="0">
+      `;
+      inputContainer.appendChild(div);
+    });
+
+    document.getElementById("career-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = {};
+      featureNames.forEach(name => {
+        formData[name] = parseFloat(document.getElementById(name).value) || 0;
+      });
+
+      const response = await fetch("/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        document.getElementById("result").textContent = `Recommended Career Path: ${result.category}`;
+      } else {
+        document.getElementById("result").textContent = "Error: " + result.message;
+      }
+    });
+  </script>
+
+</body>
+</html>
