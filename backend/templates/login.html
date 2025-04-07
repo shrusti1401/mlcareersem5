@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login | Career App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 1000px;
+        width: 95%;
+      }
+
+      .left-panel {
+        flex: 1;
+        padding: 60px 40px;
+        background-color: #fff;
+      }
+
+      .left-panel h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .social-login {
+        margin-bottom: 25px;
+      }
+
+      .social-login img {
+        width: 36px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      .forgot-password {
+        font-size: 13px;
+        margin-top: 5px;
+        color: #666;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #6c63ff;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+        font-size: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .footer-links {
+        margin-top: 25px;
+        font-size: 12px;
+        text-align: center;
+        color: #777;
+      }
+
+      .footer-links a {
+        margin: 0 8px;
+        text-decoration: none;
+        color: #555;
+      }
+
+      .right-panel {
+        flex: 1;
+        background-color: #f7f9fc;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .right-panel img {
+        max-width: 300px;
+        margin-bottom: 30px;
+      }
+
+      .right-panel p {
+        font-size: 15px;
+        color: #333;
+      }
+
+      .right-panel a {
+        color: #6c63ff;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .right-panel {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <h2>Login to your account</h2>
+        <div class="social-login">
+          <img
+            src="https://img.icons8.com/color/48/facebook-new.png"
+            alt="Facebook"
+          />
+          <img
+            src="https://img.icons8.com/color/48/google-logo.png"
+            alt="Google"
+          />
+          <img
+            src="https://img.icons8.com/color/48/linkedin.png"
+            alt="LinkedIn"
+          />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" required />
+        </div>
+        <p class="forgot-password">Forgot password?</p>
+        <!-- Inside login.html -->
+        <button type="submit" onclick="loginUser()">Log in</button>
+
+        <script>
+          function loginUser() {
+            // Replace with backend authentication logic if needed
+            window.location.href = "career_test.html";
+          }
+        </script>
+
+        <div class="footer-links">
+          © Mini-Project 2025 |
+          <a href="#">Term & Condition</a> | <a href="#">Privacy Policy</a> |
+          <a href="#">Help</a>
+        </div>
+      </div>
+      <div class="right-panel">
+        <img
+          src="C:\Users\USER\Downloads\mini_project_sem6\login.png"
+          alt="Illustration"
+        />
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+      </div>
+    </div>
+  </body>
+</html>
