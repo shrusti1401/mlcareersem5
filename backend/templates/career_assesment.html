@@ -1,0 +1,88 @@
+<!-- templates/career_assessment.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Career Assessment Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e3f2fd;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      h2 {
+        text-align: center;
+        color: #1565c0;
+      }
+      .question {
+        margin: 15px 0;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="range"] {
+        width: 100%;
+      }
+      button {
+        background-color: #1565c0;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Career Assessment Test</h2>
+      <form id="careerForm">
+        {% for feature in features %}
+        <div class="question">
+          <label>{{ feature }}</label>
+          <input type="range" min="0" max="10" value="5" name="{{ feature }}" />
+        </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("careerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const jsonData = {};
+          for (let [key, value] of formData.entries()) {
+            jsonData[key] = parseFloat(value);
+          }
+
+          const response = await fetch("/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(jsonData),
+          });
+
+          const result = await response.json();
+          if (result.status === "success") {
+            window.location.href = `/career_result?category=${encodeURIComponent(result.category)}`;
+
+          } else {
+            alert("Prediction failed: " + result.message);
+          }
+        });
+    </script>
+  </body>
+</html>
