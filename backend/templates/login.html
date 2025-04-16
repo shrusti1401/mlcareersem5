@@ -144,50 +144,23 @@
     <div class="container">
       <div class="left-panel">
         <h2>Login to your account</h2>
-        <div class="social-login">
-          <img
-            src="https://img.icons8.com/color/48/facebook-new.png"
-            alt="Facebook"
-          />
-          <img
-            src="https://img.icons8.com/color/48/google-logo.png"
-            alt="Google"
-          />
-          <img
-            src="https://img.icons8.com/color/48/linkedin.png"
-            alt="LinkedIn"
-          />
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="Your Email" required />
-        </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" required />
-        </div>
-        <p class="forgot-password">Forgot password?</p>
-        <!-- Inside login.html -->
-        <button type="submit" onclick="loginUser()">Log in</button>
-
-        <script>
-          function loginUser() {
-            // Replace with backend authentication logic if needed
-            window.location.href = "career_test.html";
-          }
-        </script>
-
-        <div class="footer-links">
-          © Mini-Project 2025 |
-          <a href="#">Term & Condition</a> | <a href="#">Privacy Policy</a> |
-          <a href="#">Help</a>
-        </div>
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <p class="forgot-password">Forgot password?</p>
+          <button type="submit">Log in</button>
+        </form>
       </div>
       <div class="right-panel">
-        <img
-          src="C:\Users\USER\Downloads\mini_project_sem6\login.png"
-          alt="Illustration"
-        />
+        <!-- Using the explicit path -->
+        <img src="Career-Recommendation-System-using-ML/static/login.png" alt="Login Image">
         <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-      </div>
+    </div>
+
     </div>
   </body>
 </html>

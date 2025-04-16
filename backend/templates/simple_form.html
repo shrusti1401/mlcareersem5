@@ -1,0 +1,13 @@
+<form method="POST" action="/predict">
+    <input type="number" name="logical_reasoning" required>
+    <input type="number" name="numerical_ability" required>
+    <input type="number" name="clerical_ability" required>
+    <input type="number" name="spatial_ability" required>
+    <input type="number" name="creativity" required>
+    <input type="number" name="organizational_ability" required>
+    <input type="number" name="leadership" required>
+    <input type="number" name="emotional_intelligence" required>
+    <button type="submit">Get Career Recommendation</button>
+    {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
+  </form>
+  

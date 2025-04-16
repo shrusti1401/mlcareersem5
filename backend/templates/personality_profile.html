@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Recommendation Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f4f9;
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            flex: 1;
+            background: #f8fafc;
+            margin: 0 10px;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .sections {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .section {
+            flex: 1;
+            border-left: 5px solid;
+            border-radius: 10px;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .green { border-color: #28a745; }
+        .yellow { border-color: #ffc107; }
+        .red { border-color: #dc3545; }
+
+        ul {
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        .career-result {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Recommendation Results</h1>
+
+        
+            <div class="card">
+                <h2>{{ result }}</h2>
+                <p>Top Career Match</p>
+            </div>
+            <div class="card">
+                <h2>Top 10%</h2>
+                <p>Career Suitability</p>
+            </div>
+        </div>
+
+        <div class="sections">
+            <div class="section green">
+                <h3>Went Well</h3>
+                <ul>
+                    <li>Empathy & Communication</li>
+                    <li>Health Sciences Interest</li>
+                    <li>Personality Type: INFJ</li>
+                </ul>
+            </div>
+            <div class="section yellow">
+                <h3>Needs Review</h3>
+                <ul>
+                    <li>Engineering Interest: Moderate</li>
+                    <li>Logical Reasoning: Average</li>
+                </ul>
+            </div>
+            <div class="section red">
+                <h3>Could Be Better</h3>
+                <ul>
+                    <li>Low Artistic Expression</li>
+                    <li>Poor fit for Design Fields</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="career-result">
+            {% if result %}
+                Final Recommendation: <strong>{{ result }}</strong>
+            {% else %}
+                No result available. Please complete the test first.
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
